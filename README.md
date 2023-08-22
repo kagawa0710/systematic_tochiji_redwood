@@ -1,5 +1,27 @@
 # README
 
+## パッケージインストール
+`yarn`
+## アプリをローカル環境で動かす
+`yarn rw dev`
+
+## マイグレーションを実行(テーブル作成)
+`yarn rw prisma migrate dev`
+
+## 都知事杯のデータとってくる
+'curl https://raw.githubusercontent.com/kmr-y/NTCIR14-QALab-PoliInfo-FormalRunDataset/master/Summarization/Pref13_tokyo.json > ./scripts/data/togikai.json'
+
+## データ投入
+`yarn rw prisma seed`
+
+prisma studioを立ち上げる(サンプルデータを手動で入れたい時):
+```
+yarn rw prisma studio
+```
+
+
+----------------------
+## ↓redwood 初期文
 Welcome to [RedwoodJS](https://redwoodjs.com)!
 
 > **Prerequisites**
