@@ -17,7 +17,6 @@ export default async () => {
 
     const json = fs.readFileSync(url)
     const data = JSON.parse(json)
-    console.log(data)
 
     console.log(
       "\nUsing the default './scripts/seed.{js,ts}' template\nEdit the file to add seed data\n"
@@ -36,33 +35,30 @@ export default async () => {
     // )
     for (const row of data) {
       // await db.comment.create({
-      await prisma.comment.create({
+
+      await db.comment.create({
         data: {
           originId: row.ID,
           line: row.Line,
           utterance: row.Utterance,
           meeting: {
-            create: [
-              {
-                prefecture: row.Prefecture,
-                volume: row.Volume,
-                number: row.Number,
-                year: row.Year,
-                month: row.Month,
-                day: row.Day,
-                datetime: '20' + row.Year + '-' + row.Month + '-' + row.Day,
-                title: row.Title,
-              },
-            ],
+            create: {
+              prefecture: row.Prefecture,
+              volume: row.Volume,
+              number: row.Number,
+              year: row.Year,
+              month: row.Month,
+              day: row.Day,
+              datetime: '20' + row.Year + '-' + row.Month + '-' + row.Day,
+              title: row.Title,
+            },
           },
           speaker: {
-            create: [
-              {
-                name: row.Name,
-                url: 'example.com',
-                description: '説明文(sample) aa党のボスです。',
-              },
-            ],
+            create: {
+              name: row.Speaker,
+              url: 'example.com',
+              description: '説明文(sample) aa党のボスです。',
+            },
           },
         },
       })

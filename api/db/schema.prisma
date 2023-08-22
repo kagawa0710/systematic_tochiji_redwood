@@ -31,11 +31,11 @@ model Meeting {
   id         Int       @id @default(autoincrement())
   prefecture String
   volume     String
-  number     Int
+  number     String
   year       Int
   month      Int
   day        Int
-  datetime   DateTime
+  datetime   String
   title      String
   comment    Comment[]
 }
