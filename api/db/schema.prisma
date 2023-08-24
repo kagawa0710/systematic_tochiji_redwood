@@ -11,7 +11,6 @@ generator client {
 model Comment {
   id        Int     @id @default(autoincrement())
   originId  String
-  line      Int
   utterance String
   meeting   Meeting @relation(fields: [meetingId], references: [id])
   meetingId Int
@@ -31,6 +30,7 @@ model Meeting {
   id         Int       @id @default(autoincrement())
   prefecture String
   volume     String
+  line       Int
   number     String
   year       Int
   month      Int

@@ -2,6 +2,11 @@ export const QUERY = gql`
   query MeetingsQuery {
     meetings {
       id
+      prefecture
+      volume
+      number
+      datetime
+      title
     }
   }
 `

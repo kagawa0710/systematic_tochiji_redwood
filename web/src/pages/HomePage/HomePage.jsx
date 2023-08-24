@@ -1,7 +1,7 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-import MeetingsCell from 'src/components/MeetingsCell'
+import MeetingCell from 'src/components/MeetingCell'
 
 const HomePage = () => {
   return (
@@ -14,7 +14,7 @@ const HomePage = () => {
         My default route is named <code>home</code>, link to me with `
         <Link to={routes.home()}>Home</Link>`
       </p>
-      <MeetingsCell />
+      <MeetingCell id={10} />
     </>
   )
 }

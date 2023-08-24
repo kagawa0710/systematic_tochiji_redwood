@@ -9378,6 +9378,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"csv-generate@npm:^4.2.6":
+  version: 4.2.6
+  resolution: "csv-generate@npm:4.2.6"
+  checksum: 0fa79be4b7324c40b3b796040188807f0b0bfedc6a84d736314cb53069c5c1c13d37cc90fbfd748a73fde71cd68a47bbede9443fa836f0c2b263f2835ef87187
+  languageName: node
+  linkType: hard
+
+"csv-parse@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "csv-parse@npm:5.4.0"
+  checksum: 0ac1652f324c4afa850faea2d6059c9db1da6cba10f5cb1bc129c5033dffcc6b70fc00d8cb947b4959a730c85c36ad8748d5a8cdc073f4bd57641d7005dd59db
+  languageName: node
+  linkType: hard
+
+"csv-stringify@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "csv-stringify@npm:6.4.0"
+  checksum: 9f405aedbcac9b4112ade1690c3506f24695ea3d05fdd4e26ac1d55b061533fc06da32588d59b9a448898330164eb429141fb6e8d9c893e0821f19b76361e26f
+  languageName: node
+  linkType: hard
+
+"csv@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "csv@npm:6.3.1"
+  dependencies:
+    csv-generate: ^4.2.6
+    csv-parse: ^5.4.0
+    csv-stringify: ^6.4.0
+    stream-transform: ^3.2.6
+  checksum: 910dc0e7fd586906a17df6a4d01f562e8d34f4943ae3829f4ac2c7fea9355edcbd72e84328e3014575092fa7409af147ae93f9cd1a29f12ed63a6557c3288820
+  languageName: node
+  linkType: hard
+
 "cyclist@npm:^1.0.1":
   version: 1.0.2
   resolution: "cyclist@npm:1.0.2"
@@ -18028,6 +18061,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@redwoodjs/core": 6.1.0
+    csv: ^6.3.1
   languageName: unknown
   linkType: soft
 
@@ -18976,6 +19010,13 @@ __metadata:
   version: 1.0.1
   resolution: "stream-shift@npm:1.0.1"
   checksum: b63a0d178cde34b920ad93e2c0c9395b840f408d36803b07c61416edac80ef9e480a51910e0ceea0d679cec90921bcd2cccab020d3a9fa6c73a98b0fbec132fd
+  languageName: node
+  linkType: hard
+
+"stream-transform@npm:^3.2.6":
+  version: 3.2.6
+  resolution: "stream-transform@npm:3.2.6"
+  checksum: 86f99b0ead3a5551b3984a7bdc331db94b74a65abf1b9003a4be27e6ec598a5934fd7438e7b24120eb5811b8903dcf1bb7d3406e34187577ae22d939fb8ced20
   languageName: node
   linkType: hard
 
