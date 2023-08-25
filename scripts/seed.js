@@ -5,35 +5,35 @@ import { parse } from 'csv-parse/sync'
 
 const fs = require('fs') // モジュールの読み込み
 
-function meeting() {
-  const meetingData = parse(
-    fs.readFileSync('./scripts/data/meeting.csv', 'utf8'),
+async function meating() {
+  const meatingData = parse(
+    fs.readFileSync('./scripts/data/meating.csv', 'utf8'),
     {
       columns: true,
       skip_empty_lines: true,
     }
   )
 
-  for (const row of meetingData) {
+  for (const row of meatingData) {
     // console.log(`row ${JSON.stringify(row)}`)
-    console.log(row.Prefecture)
-    db.meeting.create({
+    await db.meating.create({
       data: {
         prefecture: row.Prefecture,
         volume: row.Volume,
         number: row.Number,
-        year: row.Year,
-        month: row.Month,
-        day: row.Day,
+        year: parseInt(row.Year),
+        month: parseInt(row.Month),
+        day: parseInt(row.Day),
         datetime: row.Date,
         title: row.Title,
+        line: parseInt(row.Line),
       },
     })
   }
-  console.log(`Created ${meetingData.length} meetingData`)
+  console.log(`Created ${meatingData.length} meatingData`)
 }
 
-function speaker() {
+async function speaker() {
   const speakerData = parse(
     fs.readFileSync('./scripts/data/speaker.csv', 'utf8'),
     {
@@ -42,7 +42,8 @@ function speaker() {
     }
   )
   for (const row of speakerData) {
-    db.comment.create({
+    // console.log(`row ${JSON.stringify(row)}`)
+    await db.speaker.create({
       data: {
         name: row.Speaker,
         url: 'example.com',
@@ -53,7 +54,7 @@ function speaker() {
   console.log(`Created ${speakerData.length} speakerData`)
 }
 
-function comment() {
+async function comment() {
   const commentData = parse(
     fs.readFileSync('./scripts/data/comment.csv', 'utf8'),
     {
@@ -61,20 +62,31 @@ function comment() {
       skip_empty_lines: true,
     }
   )
+
   for (const row of commentData) {
-    db.comment.create({
+    let connectMeating = await db.meating.findMany({
+      where: {
+        title: row.Title,
+      },
+    })
+    let connectSpeaker = await db.speaker.findMany({
+      where: {
+        name: row.Speaker,
+      },
+    })
+
+    await db.comment.create({
       data: {
         originId: row.ID,
-        line: row.Line,
         utterance: row.Utterance,
-        meeting: {
+        meating: {
           connect: {
-            title: row.Title,
+            id: connectMeating[0].id,
           },
         },
         speaker: {
           connect: {
-            name: row.Speaker,
+            id: connectSpeaker[0].id,
           },
         },
       },
@@ -85,7 +97,7 @@ function comment() {
 
 export default async () => {
   try {
-    await meeting()
+    await meating()
     await speaker()
     await comment()
   } catch (error) {
