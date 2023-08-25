@@ -1,13 +1,14 @@
 export const standard = defineScenario({
-  meeting: {
+  meating: {
     one: {
       data: {
         prefecture: 'String',
         volume: 'String',
+        line: 4109529,
         number: 'String',
-        year: 4125467,
-        month: 9063711,
-        day: 5832051,
+        year: 8164168,
+        month: 8714797,
+        day: 4151602,
         datetime: 'String',
         title: 'String',
       },
@@ -16,10 +17,11 @@ export const standard = defineScenario({
       data: {
         prefecture: 'String',
         volume: 'String',
+        line: 5458763,
         number: 'String',
-        year: 1934493,
-        month: 9262190,
-        day: 2082167,
+        year: 1591045,
+        month: 4495451,
+        day: 3322113,
         datetime: 'String',
         title: 'String',
       },
