@@ -10,6 +10,12 @@ export const speaker = ({ id }) => {
   })
 }
 
+export const searchSpeakersName = ({ searchName }) => {
+  return db.speaker.findMany({
+    where: { name: { contains: searchName } },
+  })
+}
+
 export const createSpeaker = ({ input }) => {
   return db.speaker.create({
     data: input,

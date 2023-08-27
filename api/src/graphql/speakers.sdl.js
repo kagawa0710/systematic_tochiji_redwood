@@ -10,6 +10,7 @@ export const schema = gql`
   type Query {
     speakers: [Speaker!]! @requireAuth
     speaker(id: Int!): Speaker @requireAuth
+    searchSpeakersName(searchName: String!): [Speaker!]! @requireAuth
   }
 
   input CreateSpeakerInput {
