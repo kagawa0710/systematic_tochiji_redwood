@@ -14,6 +14,7 @@ import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/sentence-cloud" page={SentenceCloudPage} name="sentenceCloud" />
       <Route path="/sentence-cloud-test" page={SentenceCloudTestPage} name="sentenceCloudTest" />
       <Route path="/word-cloud-test" page={WordCloudTestPage} name="wordCloudTest" />
       <Route path="/speakef-filter" page={SpeakefFilterPage} name="speakefFilter" />
