@@ -11,6 +11,8 @@ export const schema = gql`
     speakers: [Speaker!]! @requireAuth
     speaker(id: Int!): Speaker @requireAuth
     searchSpeakersName(searchName: String!): [Speaker!]! @requireAuth
+    filterSentence(speakerName: String!, searchWord: String): [Speaker!]!
+      @requireAuth
   }
 
   input CreateSpeakerInput {
