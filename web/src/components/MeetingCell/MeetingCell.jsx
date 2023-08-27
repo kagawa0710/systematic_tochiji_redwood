@@ -1,6 +1,6 @@
 export const QUERY = gql`
   query FindMeetingQuery($id: Int!) {
-    meeting: meeting(id: $id) {
+    meeting: meating(id: $id) {
       id
     }
   }
