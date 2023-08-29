@@ -13,6 +13,9 @@ export const schema = gql`
   type Query {
     comments: [Comment!]! @requireAuth
     comment(id: Int!): Comment @requireAuth
+    searchComment(searchWord: String!): [Comment!]! @requireAuth
+    filterComment(searchWord: String!, speakerName: String!): [Comment!]!
+      @requireAuth
   }
 
   input CreateCommentInput {

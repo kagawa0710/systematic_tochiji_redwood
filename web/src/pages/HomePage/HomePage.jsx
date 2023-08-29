@@ -11,8 +11,7 @@ const HomePage = () => {
       <h1>システマテック基</h1>
       <p>とりあえずページ作成</p>
       <p>
-        My default route is named <code>home</code>, link to me with `
-        <Link to={routes.home()}>Home</Link>`
+        <Link to={routes.speakers()}>発言者一覧ページ</Link>
       </p>
       <MeetingCell id={10} />
     </>

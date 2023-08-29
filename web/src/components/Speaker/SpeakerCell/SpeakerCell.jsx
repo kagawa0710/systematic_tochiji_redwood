@@ -1,8 +1,8 @@
 import Speaker from 'src/components/Speaker/Speaker'
 
 export const QUERY = gql`
-  query FindSpeakerById($id: Int!) {
-    speaker: speaker(id: $id) {
+  query FindSpeakerByName($name: String!) {
+    searchSpeakersName: searchSpeakersName(name: $name) {
       id
       name
       url

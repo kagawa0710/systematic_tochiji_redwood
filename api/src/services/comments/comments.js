@@ -15,6 +15,24 @@ export const createComment = ({ input }) => {
     data: input,
   })
 }
+export const searchComment = ({ searchWord }) => {
+  return db.comment.findMany({
+    where: {
+      utterance: { contains: searchWord },
+    },
+  })
+}
+
+export const filterComment = ({ searchWord, speakerName }) => {
+  return db.comment.findMany({
+    where: {
+      utterance: { contains: searchWord },
+      speaker: {
+        name: { contains: speakerName },
+      },
+    },
+  })
+}
 
 export const updateComment = ({ id, input }) => {
   return db.comment.update({

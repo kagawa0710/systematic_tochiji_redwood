@@ -1,0 +1,11 @@
+.vertical-text {
+  display: flex;
+  justify-content: center;
+}
+
+.text-column {
+  writing-mode: vertical-rl;
+  border: 1px solid black;
+  margin: 3px;
+  padding: 5px;
+}

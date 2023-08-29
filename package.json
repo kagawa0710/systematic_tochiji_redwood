@@ -22,6 +22,8 @@
   },
   "packageManager": "yarn@3.6.1",
   "dependencies": {
+    "@amcharts/amcharts5": "^5.4.5",
+    "amcharts": "^3.14.5",
     "csv": "^6.3.1",
     "csv-parse": "^5.4.1",
     "fs": "^0.0.1-security",

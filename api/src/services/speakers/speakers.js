@@ -10,6 +10,28 @@ export const speaker = ({ id }) => {
   })
 }
 
+export const searchSpeakersName = ({ searchName }) => {
+  return db.speaker.findMany({
+    where: { name: { contains: searchName } },
+  })
+}
+
+export const filterSentence = ({ speakerName, searchWord }) => {
+  return db.speaker.findMany({
+    where: {
+      name: { contains: speakerName },
+      comment: {
+        None: {
+          utterance: { contains: searchWord },
+        },
+      },
+    },
+    include: {
+      comment: true,
+    },
+  })
+}
+
 export const createSpeaker = ({ input }) => {
   return db.speaker.create({
     data: input,
